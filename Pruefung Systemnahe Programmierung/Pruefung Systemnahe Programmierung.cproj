@@ -120,36 +120,39 @@
     </ToolchainSettings>
   </PropertyGroup>
   <ItemGroup>
-    <Compile Include="a1_traffic_light.h">
+    <Compile Include="include\a1_traffic_light.h">
       <SubType>compile</SubType>
     </Compile>
-    <Compile Include="a2_buttons_LED_polling.h">
+    <Compile Include="include\a2_buttons_LED_polling.h">
       <SubType>compile</SubType>
     </Compile>
-    <Compile Include="a3_buttons_led_interrupts.h">
+    <Compile Include="include\a3_buttons_led_interrupts.h">
       <SubType>compile</SubType>
     </Compile>
-    <Compile Include="a4_summer.h">
+    <Compile Include="include\a4_summer.h">
       <SubType>compile</SubType>
     </Compile>
-    <Compile Include="a5_dim_LED.h">
+    <Compile Include="include\a5_dim_LED.h">
       <SubType>compile</SubType>
     </Compile>
-    <Compile Include="a6_read_analog_2chan.h">
+    <Compile Include="include\a6_read_analog_2chan.h">
       <SubType>compile</SubType>
     </Compile>
-    <Compile Include="a7_running_light_8bit.h">
+    <Compile Include="include\a7_running_light_8bit.h">
       <SubType>compile</SubType>
     </Compile>
-    <Compile Include="bit_macros.h">
+    <Compile Include="include\bit_macros.h">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="include\serial.h">
       <SubType>compile</SubType>
     </Compile>
     <Compile Include="main.c">
       <SubType>compile</SubType>
     </Compile>
-    <Compile Include="serial.h">
-      <SubType>compile</SubType>
-    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="include" />
   </ItemGroup>
   <Import Project="$(AVRSTUDIO_EXE_PATH)\\Vs\\Compiler.targets" />
 </Project>
