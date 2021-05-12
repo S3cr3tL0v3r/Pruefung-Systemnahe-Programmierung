@@ -18,12 +18,14 @@
 #include "bit_macros.h"
 
 // 
-inline void trafficLightSetup() {
+inline void trafficLightSetup() 
+{
 	DDRB = (1 << DDB2) | (1 << DDB3) | (1 << DDB4);	// Set pin B2, B3 and B4 as output
 }
 
 // '_delay_ms' is static but used in inline function 'trafficLightLoop' which is not static
-inline static void trafficLightLoop() {
+inline static void trafficLightLoop() 
+{
 	SET_BIT(PORTB, LED1);	// LEDs 1 and LED 2 on for 200 ms
 	SET_BIT(PORTB, LED2);
 	_delay_ms(200);

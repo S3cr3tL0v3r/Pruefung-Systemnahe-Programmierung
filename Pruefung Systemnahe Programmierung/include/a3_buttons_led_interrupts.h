@@ -12,7 +12,8 @@
 #include <avr/interrupt.h>
 #include "bit_macros.h"
 
-inline void buttonsLEDInterruptSetup() {
+inline void buttonsLEDInterruptSetup() 
+{
 	DDRB |= (1 << DDB4);					// B4 output.
 	DDRD &= ~((1 << DDD2) | (1 << DDD3));	// D2 and D3 input.
 	PORTD |= (1 << DDD2) | (1 << DDD3);		// Pull-up resistor D2 and D3.
@@ -27,7 +28,8 @@ inline void buttonsLEDInterruptSetup() {
 // Interrupt service routine to turn the LED on
 #ifndef __vetor_1
 #define __vetor_1
-ISR (INT0_vect) {
+ISR (INT0_vect) 
+{
 	PORTB |= (1 << PORTB4);
 }
 #endif /* __vetor_1 */
@@ -35,7 +37,8 @@ ISR (INT0_vect) {
 // Interrupt service routine to turn the LED off
 #ifndef __vetor_2
 #define __vetor_2
-ISR (INT1_vect) {
+ISR (INT1_vect) 
+{
 	PORTB &= ~(1 << PORTB4);
 }
 #endif /* __vetor_2 */
