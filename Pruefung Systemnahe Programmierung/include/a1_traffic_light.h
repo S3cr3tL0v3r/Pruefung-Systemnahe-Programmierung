@@ -13,7 +13,9 @@
 #define LED2 PORTB3
 #define LED3 PORTB4
 
+#ifndef F_CPU
 #define F_CPU 16000000UL
+#endif
 #include <util/delay.h>
 #include "bit_macros.h"
 
