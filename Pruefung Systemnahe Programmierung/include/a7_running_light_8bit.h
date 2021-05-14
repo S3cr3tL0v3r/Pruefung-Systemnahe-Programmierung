@@ -16,6 +16,14 @@
 #include "bit_macros.h"
 
 #define DELAY 100
+#define TURN_ON_DELAY_OFF_INCR(port, pin) ({\
+	(port) = (1 << (pin)++);\
+	_delay_ms(DELAY);\
+})
+#define TURN_ON_DELAY_OFF_DECR(port, pin) ({\
+	(port) = (1 << (pin)--);\
+	_delay_ms(DELAY);\
+})
 
 uint8_t b = 1;
 uint8_t d = 4;
@@ -31,32 +39,21 @@ inline void runningLightSetup()
 inline static void runningLightLoop()
 {
 	while (d != 8)
-	{
-		PORTD = (1 << d++);
-		_delay_ms(DELAY);
-	}
+		TURN_ON_DELAY_OFF_INCR(PORTD, d);
 	d--;
 	PORTD = 0;
 	
 	while (b != 5)
-	{
-		PORTB = (1 << b++);
-		_delay_ms(DELAY);
-	}
+		TURN_ON_DELAY_OFF_INCR(PORTB, b);
 	b -= 2;
+	
 	while (b)
-	{
-		PORTB = (1 << b--);
-		_delay_ms(DELAY);
-	}
+		TURN_ON_DELAY_OFF_DECR(PORTB, b);
 	b++;
 	PORTB = 0;
 	
 	while (d != 3)
-	{
-		PORTD = (1 << d--);
-		_delay_ms(DELAY);
-	}
+		TURN_ON_DELAY_OFF_DECR(PORTD, d);
 	d += 2;
 }
 
