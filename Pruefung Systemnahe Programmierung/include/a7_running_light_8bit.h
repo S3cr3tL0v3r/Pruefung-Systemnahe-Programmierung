@@ -15,9 +15,12 @@
 #include <util/delay.h>
 #include "bit_macros.h"
 
-#define DELAY _delay_ms(100)
+#define DELAY 100
 
-inline void runningLightSetup() 
+uint8_t b = 1;
+uint8_t d = 4;
+
+inline void runningLightSetup()
 {
 	/*DDRB = (1 << DDB1) | (1 << DDB2) | (1 << DDB3) | (1 << DDB4);	// Set pin B1, B2, B3, B4 and
 	DDRD = (1 << DDD4) | (1 << DDD5) | (1 << DDD6) | (1 << DDD7);	// D4, D5, D6 and D7 as output.*/
@@ -27,38 +30,70 @@ inline void runningLightSetup()
 
 inline static void runningLightLoop()
 {
-	PORTB = (1 << PORTB4);
-	DELAY;
-	PORTB = (1 << PORTB3);
-	DELAY;
-	PORTB = (1 << PORTB2);
-	DELAY;
-	PORTB = (1 << PORTB1);
-	DELAY;
-	PORTB = 0;
-	PORTD = (1 << PORTD7);
-	DELAY;
-	PORTD = (1 << PORTD6);
-	DELAY;
-	PORTD = (1 << PORTD5);
-	DELAY;
-	PORTD = (1 << PORTD4);
-	DELAY;
-	PORTD = (1 << PORTD5);
-	DELAY;
-	PORTD = (1 << PORTD6);
-	DELAY;
-	PORTD = (1 << PORTD7);
-	DELAY;
+	while (d != 8)
+	{
+		PORTD = (1 << d++);
+		_delay_ms(DELAY);
+	}
+	d--;
 	PORTD = 0;
-	PORTB = (1 << PORTB1);
-	DELAY;
-	PORTB = (1 << PORTB2);
-	DELAY;
-	PORTB = (1 << PORTB3);
-	DELAY;
+	
+	while (b != 5)
+	{
+		PORTB = (1 << b++);
+		_delay_ms(DELAY);
+	}
+	b -= 2;
+	while (b)
+	{
+		PORTB = (1 << b--);
+		_delay_ms(DELAY);
+	}
+	b++;
+	PORTB = 0;
+	
+	while (d != 3)
+	{
+		PORTD = (1 << d--);
+		_delay_ms(DELAY);
+	}
+	d += 2;
 }
 
-
+inline static void naiveRunningLightLoop()
+{
+	PORTD = (1 << PORTD4);
+	_delay_ms(DELAY);
+	PORTD = (1 << PORTD5);
+	_delay_ms(DELAY);
+	PORTD = (1 << PORTD6);
+	_delay_ms(DELAY);
+	PORTD = (1 << PORTD7);
+	_delay_ms(DELAY);
+	PORTD = 0;
+	
+	PORTB = (1 << PORTB1);
+	_delay_ms(DELAY);
+	PORTB = (1 << PORTB2);
+	_delay_ms(DELAY);
+	PORTB = (1 << PORTB3);
+	_delay_ms(DELAY);
+	PORTB = (1 << PORTB4);
+	_delay_ms(DELAY);
+	PORTB = (1 << PORTB3);
+	_delay_ms(DELAY);
+	PORTB = (1 << PORTB2);
+	_delay_ms(DELAY);
+	PORTB = (1 << PORTB1);
+	_delay_ms(DELAY);
+	PORTB = 0;
+	
+	PORTD = (1 << PORTD7);
+	_delay_ms(DELAY);
+	PORTD = (1 << PORTD6);
+	_delay_ms(DELAY);
+	PORTD = (1 << PORTD5);
+	_delay_ms(DELAY);
+}
 
 #endif /* A7_RUNNING_LIGHT_8BIT_H_ */
