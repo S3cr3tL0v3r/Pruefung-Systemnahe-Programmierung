@@ -9,8 +9,8 @@
 #ifndef BIT_MAKROS_H_
 #define BIT_MAKROS_H_
 
-#define SET_BIT(PORT, BIT) ((PORT) |= (1 << (BIT)))
-#define CLEAR_BIT(PORT, BIT) ((PORT) &= ~(1 << (BIT)))
-#define TOGGLE(PORT, BIT) ((PORT) ^= (1 << (BIT)))
+#define SET_BIT(port, bit) ((port) |= (1 << (bit)))
+#define CLEAR_BIT(port, bit) ((port) &= ~(1 << (bit)))
+#define TOGGLE_BIT(port, bit) ((port) ^= (1 << (bit)))
 
 #endif /* BIT_MAKROS_H_ */
