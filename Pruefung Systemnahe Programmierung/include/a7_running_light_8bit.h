@@ -30,10 +30,8 @@ uint8_t d = 4;
 
 inline void runningLightSetup()
 {
-	/*DDRB = (1 << DDB1) | (1 << DDB2) | (1 << DDB3) | (1 << DDB4);	// Set pin B1, B2, B3, B4 and
-	DDRD = (1 << DDD4) | (1 << DDD5) | (1 << DDD6) | (1 << DDD7);	// D4, D5, D6 and D7 as output.*/
-	DDRB = 0b00011110;	// Set pin B1, B2, B3, B4 and
-	DDRD = 0b11110000;	// D4, D5, D6 and D7 as output.
+	DDRB = (1 << DDB1) | (1 << DDB2) | (1 << DDB3) | (1 << DDB4);	// Set pin B1, B2, B3, B4 and
+	DDRD = (1 << DDD4) | (1 << DDD5) | (1 << DDD6) | (1 << DDD7);	// D4, D5, D6 and D7 as output.
 }
 
 inline static void runningLightLoop()
