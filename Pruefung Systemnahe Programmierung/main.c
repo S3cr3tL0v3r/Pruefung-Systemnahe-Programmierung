@@ -21,10 +21,12 @@
 int main(void)
 {
     /* setup function */
+	runningLightSetup();
 	
     while (1) 
     {
 		/* loop function */
+		runningLightLoop();
     }
 }
 
