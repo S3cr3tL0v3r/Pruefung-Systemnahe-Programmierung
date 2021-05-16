@@ -27,19 +27,19 @@ inline void serialInit()
 	sei();		// Enable interrupts globally
 }
 
-inline void sendChar(uint8_t value) 
+inline void sendChar(char value) 
 {
 	while ( !(UCSR0A & (1 << UDRE0)) ) ;
 	UDR0 = value;
 }
 
-inline void sendString(uint8_t* message) 
+inline void sendString(char* message) 
 {
 	while(*message)
 	sendChar(*message++);
 }
 
-inline void sendStringNewLine(uint8_t* message) 
+inline void sendStringNewLine(char* message) 
 {
 	while(*message)
 	sendChar(*message++);
