@@ -21,7 +21,8 @@ volatile uint8_t adc1L;
 volatile uint8_t adc1H;
 
 /*
- * Config
+ * Config ADC to read two values with 10 bit resolution.
+ * Begin serial connection.
  */
 inline void readAnalog2chanSetup()
 {
@@ -61,7 +62,7 @@ inline char* formatOutput(char* buffer, char* val0str, char* val1str)
 }
 
 /*
- * 
+ * Convert sensor values to strings and send to serial interface.
  */
 inline static void readAnalog2chanLoop()
 {
@@ -81,7 +82,9 @@ inline static void readAnalog2chanLoop()
 }
 
 /*
- * 
+ * ADC conversion finished interrupt.
+ * Switch between ADC0 and ADC1 and 
+ * save readings to process in main loop.
  */
 ISR(ADC_vect)
 {

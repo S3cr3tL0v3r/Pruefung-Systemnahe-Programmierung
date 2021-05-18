@@ -15,6 +15,10 @@ int del;
 uint8_t b = 1;
 uint8_t d = 4;
 
+/*
+ * Config 2x4 output pins for 8 bit running light.
+ * Delay specifies LED on time.
+ */
 inline void runningLightSetup(int delay)
 {
 	DDRB = (1 << DDB1) | (1 << DDB2) | (1 << DDB3) | (1 << DDB4);	// Set pin B1, B2, B3, B4 and
@@ -22,18 +26,27 @@ inline void runningLightSetup(int delay)
 	del = delay;
 }
 
+/*
+ * 
+ */
 inline static void turnOnDelInc(uint8_t port, uint8_t pin)
 {
 	port = 1 << pin++;
 	_delay_ms(del);
 }
 
+/*
+ * 
+ */
 inline static void turnOnDelDec(uint8_t port, uint8_t pin)
 {
 	port = 1 << pin--;
 	_delay_ms(del);
 }
 
+/*
+ * Running light logic. Walk every four pins of both ports up and down.
+ */
 inline static void runningLightLoop()
 {
 	while (d != 8)
