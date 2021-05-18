@@ -12,7 +12,8 @@
 #include <avr/interrupt.h>
 
 /*
- * 
+ * Config serial interface. Set baud rate and frame.
+ * @param	baud	Baud rate
  */
 inline void serialBegin(int baud)
 {
@@ -28,7 +29,8 @@ inline void serialBegin(int baud)
 }
 
 /*
- * 
+ * Send a single character as soon as transmitter is ready.
+ * @param	value	Character to be sent
  */
 inline void sendChar(char value) 
 {
@@ -37,7 +39,8 @@ inline void sendChar(char value)
 }
 
 /*
- * 
+ * Send a string by calling sendChar on every character until '\0'.
+ * @param	message	String to be sent
  */
 inline void sendString(char* message) 
 {
@@ -46,7 +49,9 @@ inline void sendString(char* message)
 }
 
 /*
- * 
+ * Send a string by calling sendChar on every character until '\0'.
+ * Add CR and NL.
+ * @param	message	String to be sent
  */
 inline void sendStringNewLine(char* message) 
 {
