@@ -29,19 +29,11 @@ inline void runningLightSetup(int delay)
 /*
  * 
  */
-inline static void turnOnDelInc(uint8_t port, uint8_t pin)
+inline static void turnOnDel(uint8_t port, uint8_t pin)
 {
-	port = 1 << pin++;
-	_delay_ms(del);
-}
-
-/*
- * 
- */
-inline static void turnOnDelDec(uint8_t port, uint8_t pin)
-{
-	port = 1 << pin--;
-	_delay_ms(del);
+	port = 1 << pin;
+	for (int i = del; i; i--)
+		_delay_ms(100);
 }
 
 /*
@@ -50,21 +42,37 @@ inline static void turnOnDelDec(uint8_t port, uint8_t pin)
 inline static void runningLightLoop()
 {
 	while (d != 8)
-		turnOnDelInc(PORTD, d);
+	{
+		//turnOnDel(PORTD, d++);
+		PORTD = 1 << d++;
+		_delay_ms(100);
+	}
 	d--;
 	PORTD = 0;
 	
 	while (b != 5)
-		turnOnDelInc(PORTB, b);
+	{
+		//turnOnDel(PORTB, b++);
+		PORTB = 1 << b++;
+		_delay_ms(100);
+	}
 	b -= 2;
 	
 	while (b)
-		turnOnDelDec(PORTB, b);
+	{
+		//turnOnDel(PORTB, b--);
+		PORTB = 1 << b--;
+		_delay_ms(100);
+	}
 	b++;
 	PORTB = 0;
 	
 	while (d != 3)
-		turnOnDelDec(PORTD, d);
+	{
+		//turnOnDel(PORTD, d--);
+		PORTD = 1 << d--;
+		_delay_ms(100);
+	}
 	d += 2;
 }
 

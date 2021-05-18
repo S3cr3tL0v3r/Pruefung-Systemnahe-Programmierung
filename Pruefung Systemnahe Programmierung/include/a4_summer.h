@@ -44,11 +44,11 @@ ISR (INT0_vect)
 }
 
 /*
- * Change the timer top value to switch to concert pitch C (128 Hz).
+ * Change the timer top value to switch to middle C (264 Hz).
  */
 ISR (INT1_vect) 
 {
-	OCR0A = 117;	// Concert pitch C (128 Hz)
+	OCR0A = 117;	// Middle C (264 Hz)
 }
 
 /*

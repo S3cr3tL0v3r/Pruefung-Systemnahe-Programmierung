@@ -11,6 +11,9 @@
 
 #include <avr/interrupt.h>
 
+/*
+ * 
+ */
 inline void serialBegin(int baud)
 {
 	int myubrr = (F_CPU / 16 / baud) - 1;
@@ -24,22 +27,31 @@ inline void serialBegin(int baud)
 	sei();										// Enable interrupts globally
 }
 
+/*
+ * 
+ */
 inline void sendChar(char value) 
 {
-	while (!(UCSR0A & (1 << UDRE0))) ;
+	while (!(UCSR0A & (1 << UDRE0)));
 	UDR0 = value;
 }
 
+/*
+ * 
+ */
 inline void sendString(char* message) 
 {
 	while(*message)
-	sendChar(*message++);
+		sendChar(*message++);
 }
 
+/*
+ * 
+ */
 inline void sendStringNewLine(char* message) 
 {
-	while(*message)
-	sendChar(*message++);
+	while (*message)
+		sendChar(*message++);
 	sendChar('\r');
 	sendChar('\n');
 }

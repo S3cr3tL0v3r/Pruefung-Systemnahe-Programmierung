@@ -18,11 +18,11 @@
  * Config ADC to read continuous and set the PWM frequency.
  */
 inline void dimLEDSetup()
-{
+{	
 	CLEAR_BIT(DDRC, PORTC0);	// C0 is analog input
 	SET_BIT(DDRD, PORTD6);		// D6 is now output
 	
-	OCR0A = 128;    // set PWM for 0% duty cycle
+	OCR0A = 0;    // set PWM for 0% duty cycle
 
 	TCCR0A |= (1 << COM0A1);				// set none-inverting mode
 	TCCR0A |= (1 << WGM01) | (1 << WGM00);  // set fast PWM Mode
@@ -49,7 +49,7 @@ inline void dimLEDSetup()
  * Timer register content for the PWM frequency equals analog reading.
  */
 ISR(ADC_vect)
-{
+{	
 	OCR0A = ADCH;	// Only need to read the high value for 8 bit resolution.
 }
 

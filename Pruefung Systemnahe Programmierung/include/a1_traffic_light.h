@@ -29,23 +29,26 @@ inline void trafficLightSetup()
  */
 inline static void trafficLightLoop() 
 {
+	// RED YELLOW
 	SET_BIT(PORTB, LED1);		// LEDs 1 and LED 2 on for 200 ms
 	SET_BIT(PORTB, LED2);
 	_delay_ms(200);
 	CLEAR_BIT(PORTB, LED1);
 	CLEAR_BIT(PORTB, LED2);
 	
+	// GREEN
 	SET_BIT(PORTB, LED3);		// LED 3 on for 1000 ms
 	_delay_ms(1000);
 	CLEAR_BIT(PORTB, LED3);
 	
+	// YELLOW
 	SET_BIT(PORTB, LED2);		// LED 2 on for 200 ms
 	_delay_ms(200);
 	CLEAR_BIT(PORTB, LED2);
 	
+	// RED
 	SET_BIT(PORTB, LED1);		// LED 1 on for 1000 ms
-	_delay_ms(1000);
-	CLEAR_BIT(PORTB, LED1);
+	_delay_ms(1000);			// Don't turn off, as immediately switched on again in next stage.
 }
 
 #endif /* A1_TRAFFIC_LIGHT_H_ */

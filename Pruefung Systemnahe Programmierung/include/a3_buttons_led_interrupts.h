@@ -22,9 +22,8 @@ inline void buttonsLEDInterruptSetup()
 	DDRD &= ~((1 << DDD2) | (1 << DDD3));	// D2 and D3 input.
 	PORTD |= (1 << DDD2) | (1 << DDD3);		// Pull-up resistor D2 and D3.
 	
-	EICRA |= (1 << ISC00) | (1 << ISC10);		// Set interrupt on any logic change
-	EICRA &= ~((1 << ISC01) | (1 << ISC11));	// ensure other bits are zero
-	EIMSK |= (1 << INT0) | (1 << INT1);			// Enable interrupt INT0 and INT1
+	EICRA = (1 << ISC00) | (1 << ISC10);	// Set interrupt on any logic change
+	EIMSK |= (1 << INT0) | (1 << INT1);		// Enable interrupt INT0 and INT1
 	
 	sei();		// Enable interrupts globally
 }
