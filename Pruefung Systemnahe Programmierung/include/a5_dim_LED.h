@@ -1,6 +1,8 @@
 /*
  * a5_dim_LED.h
  *
+ * Dims an led depending on the position of a potentiometer
+ *
  * Created: 10-May-21 16:11:28
  * Authors: Henrik Kaltenbach, Michael Oder and Philipp Küchenmeister
  */ 

@@ -1,6 +1,8 @@
 /*
  * serial.h
  *
+ * This program is used to enable serial output of characters, strings and new lines.
+ *
  * Created: 10-May-21 15:49:53
  * Authors: Henrik Kaltenbach, Michael Oder and Philipp Küchenmeister
  */ 

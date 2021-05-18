@@ -1,6 +1,8 @@
 /*
  * a6_read_analog_2chan.h
  *
+ * Reads analog two sensors with a resolution of 10 bit and outputs them serially (input: value - input: value)
+ *
  * Created: 10-May-21 16:14:00
  * Authors: Henrik Kaltenbach, Michael Oder and Philipp Küchenmeister
  */ 

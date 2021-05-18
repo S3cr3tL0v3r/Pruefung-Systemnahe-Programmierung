@@ -1,6 +1,8 @@
 /*
  * a1_traffic_light.h
  *
+ * Here a traffic light is simulated, which changes its traffic light switching after certain time intervals
+ *
  * Created: 10-May-21 15:49:23
  * Authors: Henrik Kaltenbach, Michael Oder and Philipp Küchenmeister
  */ 

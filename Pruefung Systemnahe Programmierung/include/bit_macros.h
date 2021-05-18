@@ -1,6 +1,8 @@
 /*
  * bit_makros.h
  *
+ * These macros are used to either set pins as input or output, or to turn pins on or off.
+ *
  * Created: 10-May-21 15:50:12
  * Authors: Henrik Kaltenbach, Michael Oder and Philipp Küchenmeister
  */ 

@@ -1,6 +1,8 @@
 /*
  * a4_summer.h
  *
+ * Changes the frequency of a summer so that concert pitch A (440 Hz) or middle C (264 Hz) is output depending on the last button pressed
+ *
  * Created: 10-May-21 16:08:08
  * Authors: Henrik Kaltenbach, Michael Oder and Philipp Küchenmeister
  */ 

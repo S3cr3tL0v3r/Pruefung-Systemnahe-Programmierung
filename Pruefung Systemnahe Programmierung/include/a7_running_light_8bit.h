@@ -1,6 +1,9 @@
 /*
  * a7_running_light_8bit.h
  *
+ * Depending on the input of the delay (variable delay) a running light of leds is started. 
+ * Here the leds are switched on one after the other. The lighted led runs first in one direction and then again in the other direction.
+ *
  * Created: 10-May-21 16:14:46
  * Authors: Henrik Kaltenbach, Michael Oder and Philipp Küchenmeister
  */ 
