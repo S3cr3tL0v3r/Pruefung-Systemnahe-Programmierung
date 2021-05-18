@@ -11,7 +11,13 @@
 
 #include <avr/interrupt.h>
 
-inline void summerSetup() 
+/*
+ * Config out- and input pins (incl. pull-up).
+ * Config external interrupt INT0 and INT1 for the buttons.
+ * Config timer0 to trigger the summer to create a frequency
+ * and therefore a sound.
+ */
+inline void summerSetup()
 {
 	DDRB |= (1 << DDB4);					// B4 output
 	DDRD &= ~((1 << DDD2) | (1 << DDD3));	// D2 and D3 input
@@ -26,34 +32,31 @@ inline void summerSetup()
 	TIMSK0 |= (1 << OCIE0A);	// Set the ISR COMPA vect.
 	TCCR0B |= (1 << CS02);		// Set prescaler to 256 and start the timer.
 	
-	sei();	// Enable interrupts globally
+	sei();		// Enable interrupts globally
 }
 
-// Interrupt service routine changes the timer top value to switch to concert pitch A (440 Hz)
-#ifndef __vetor_1
-#define __vetor_1
+/*
+ * Change the timer top value to switch to concert pitch A (440 Hz).
+ */
 ISR (INT0_vect) 
 {
 	OCR0A = 70;		// Concert pitch A (440 Hz)
 }
-#endif /* __vetor_1 */
 
-// Interrupt service routine changes the timer top value to switch to concert pitch C (128 Hz)
-#ifndef __vetor_2
-#define __vetor_2
+/*
+ * Change the timer top value to switch to concert pitch C (128 Hz).
+ */
 ISR (INT1_vect) 
 {
 	OCR0A = 117;	// Concert pitch C (128 Hz)
 }
-#endif /* __vetor_2 */
 
-// Interrupt service routine to toggle the summer to create sound
-#ifndef __vetor_14
-#define __vetor_14
+/*
+ * Toggle the summer to create sound.
+ */
 ISR (TIMER0_COMPA_vect) 
 {
 	PORTB ^= (1 << (PORTB4));
 }
-#endif /* __vetor_14 */
 
 #endif /* A4_SUMMER_H_ */
