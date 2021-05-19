@@ -21,8 +21,8 @@
  */
 inline void dimLEDSetup()
 {	
-	CLEAR_BIT(DDRC, PORTC0);	// C0 is analog input
-	SET_BIT(DDRD, PORTD6);		// D6 is now output
+	DDRC &= ~(1 << DDC0);	// C0 is analog input
+	DDRD |= (1 << DDD6);	// D6 is now output	
 	
 	OCR0A = 0;    // set PWM for 0% duty cycle
 

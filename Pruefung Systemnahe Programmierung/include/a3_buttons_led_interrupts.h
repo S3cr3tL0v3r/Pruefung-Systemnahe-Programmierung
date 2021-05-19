@@ -22,7 +22,7 @@ inline void buttonsLEDInterruptSetup()
 {
 	DDRB |= (1 << DDB4);					// B4 output.
 	DDRD &= ~((1 << DDD2) | (1 << DDD3));	// D2 and D3 input.
-	PORTD |= (1 << DDD2) | (1 << DDD3);		// Pull-up resistor D2 and D3.
+	PORTD |= (1 << PORTD2) | (1 << PORTD3);	// Pull-up resistor D2 and D3.
 	
 	EICRA = (1 << ISC00) | (1 << ISC10);	// Set interrupt on any logic change
 	EIMSK |= (1 << INT0) | (1 << INT1);		// Enable interrupt INT0 and INT1
