@@ -12,7 +12,6 @@
 #define A5_DIM_LED_H_
 
 #include <avr/interrupt.h>
-#include "bit_macros.h"
 
 /*
  * Config analog input and PWM output pins.

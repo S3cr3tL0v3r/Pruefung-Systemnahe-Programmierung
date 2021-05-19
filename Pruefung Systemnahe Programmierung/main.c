@@ -21,7 +21,7 @@
 //#include "include/a4_summer.h"
 //#include "include/a5_dim_LED.h"
 //#include "include/a6_read_analog_2chan.h"
-#include "include/a7_running_light_8bit.h"
+//#include "include/a7_running_light_8bit.h"
 
 int main(void)
 {
@@ -32,7 +32,7 @@ int main(void)
 	//summerSetup();
 	//dimLEDSetup();
 	//readAnalog2chanSetup();
-	runningLightSetup(100);
+	//runningLightSetup(100);
 	
     while (1) 
     {
@@ -40,6 +40,6 @@ int main(void)
 		//trafficLightLoop();
 		//buttonsLEDPollingLoop();
 		//readAnalog2chanLoop();
-		runningLightLoop();
+		//runningLightLoop();
     }
 }
