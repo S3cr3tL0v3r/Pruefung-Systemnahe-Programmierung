@@ -1,7 +1,7 @@
 /*
  * a2_buttons_LED_polling.h
  *
- * Led is switched either on or off after polling the status of two buttons
+ * LED is switched either on or off after polling the status of two buttons.
  *
  * Created: 10-May-21 16:11:57
  * Authors: Henrik Kaltenbach, Michael Oder and Philipp Küchenmeister

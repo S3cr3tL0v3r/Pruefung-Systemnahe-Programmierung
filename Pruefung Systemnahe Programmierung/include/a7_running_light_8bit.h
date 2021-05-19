@@ -1,8 +1,8 @@
 /*
  * a7_running_light_8bit.h
  *
- * Depending on the input of the delay (variable delay) a running light of leds is started. 
- * Here the leds are switched on one after the other. The lighted led runs first in one direction and then again in the other direction.
+ * 8 bit running light with variable speed. 8 LEDs are switched on and off 
+ * from D4 to B4 (exl. B0) and vice versa.
  *
  * Created: 10-May-21 16:14:46
  * Authors: Henrik Kaltenbach, Michael Oder and Philipp Küchenmeister
@@ -13,11 +13,12 @@
 #define A7_RUNNING_LIGHT_8BIT_H_
 
 #include <util/delay.h>
-  
+
 /*
- * Pin mapping
+ * Pin mapping 0  1  2  3  4  5  6  7  8  9 10 11 12 13
+ *
  *			   D  D  D  D  B  B  B  B  B  B  B  D  D  D
- *			   0  1  2  3  4  5  6  7  8  9 10 11 12 13
+ *			   4  5  6  7  1  2  3  4  3  2  1  7  6  5
  */
 int pins[] = { 4, 5, 6, 7, 1, 2, 3, 4, 3, 2, 1, 7, 6, 5 };
 uint8_t pos = 0;
@@ -39,7 +40,7 @@ inline void runningLightSetup(uint16_t delay)
  * Single running light step. Recommended use inside a loop.
  * Then walks through pin mapping array and switches selected LED on and off.
  */
-inline static void runningLightLoop()
+static inline void runningLightLoop()
 {
 	PORTB &= ~((1 << PORTB1) | (1 << PORTB2) | (1 << PORTB3) | (1 << PORTB4));
 	PORTD &= ~((1 << PORTD4) | (1 << PORTD5) | (1 << PORTD6) | (1 << PORTD7));

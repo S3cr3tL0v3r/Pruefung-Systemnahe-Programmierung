@@ -5,8 +5,8 @@
 /*
  * main.c
  *
- * This program provides all other programs and tasks. All header programs can be called up via this. 
- * In addition, an endless loop is provided here which is necessary for many programs.
+ * Main entry point, contains main function. Subroutines are called from here.
+ * main() contains an endless loop to keep the program running.
  *
  * Created: 10-May-21 15:47:46
  * Authors: Henrik Kaltenbach, Michael Oder and Philipp Küchenmeister

@@ -1,7 +1,8 @@
 /*
  * a4_summer.h
  *
- * Changes the frequency of a summer so that concert pitch A (440 Hz) or middle C (264 Hz) is output depending on the last button pressed
+ * Creating sound by toggling a summer. Switch frequency between concert pitch A (440 Hz) 
+ * and middle C (264 Hz) by pressing two buttons.
  *
  * Created: 10-May-21 16:08:08
  * Authors: Henrik Kaltenbach, Michael Oder and Philipp Küchenmeister
@@ -18,6 +19,8 @@
  * Config external interrupt INT0 and INT1 for the buttons.
  * Config timer0 to trigger the summer to create a frequency
  * and therefore a sound.
+ *
+ * OCRnA = [ (clock_speed / Prescaler_value) * Desired_time_in_Seconds ] - 1
  */
 inline void summerSetup()
 {

@@ -1,7 +1,7 @@
 /*
  * a1_traffic_light.h
  *
- * Here a traffic light is simulated, which changes its traffic light switching after certain time intervals
+ * A traffic light is simulated, which changes its traffic light switching after certain time intervals.
  *
  * Created: 10-May-21 15:49:23
  * Authors: Henrik Kaltenbach, Michael Oder and Philipp Küchenmeister
@@ -29,7 +29,7 @@ inline void trafficLightSetup()
 /*
  * Traffic light logic with required LED on times.
  */
-inline static void trafficLightLoop() 
+static inline void trafficLightLoop() 
 {
 	// RED YELLOW
 	SET_BIT(PORTB, LED1);		// LEDs 1 and LED 2 on for 200 ms

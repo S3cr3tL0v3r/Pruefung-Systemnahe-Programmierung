@@ -1,7 +1,7 @@
 /*
  * a3_buttons_led_interrupts.h
  *
- * Led is switched either on or off with interrupts after polling the status of two buttons
+ * LED is switched either on or off using extern interrupts from buttons.
  *
  * Created: 10-May-21 16:12:30
  * Authors: Henrik Kaltenbach, Michael Oder and Philipp Küchenmeister

@@ -1,7 +1,8 @@
 /*
  * a6_read_analog_2chan.h
  *
- * Reads analog two sensors with a resolution of 10 bit and outputs them serially (input: value - input: value)
+ * Reads two analog sensors with resolution of 10 bit and 
+ * send to serial interface (sensor:value - sensor:value).
  *
  * Created: 10-May-21 16:14:00
  * Authors: Henrik Kaltenbach, Michael Oder and Philipp Küchenmeister
@@ -66,7 +67,7 @@ inline char* formatOutput(char* buffer, char* val0str, char* val1str)
 /*
  * Convert sensor values to strings and send to serial interface.
  */
-inline static void readAnalog2chanLoop()
+static inline void readAnalog2chanLoop()
 {
 	int adc0Val = highLowToInt(adc0H, adc0L);	// Merge high and low register into
 	int adc1Val = highLowToInt(adc1H, adc1L);	// a single integer variable.
