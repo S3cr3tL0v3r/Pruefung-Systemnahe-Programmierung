@@ -21,6 +21,7 @@
 inline void buttonsLEDInterruptSetup()
 {
 	DDRB |= (1 << DDB4);					// B4 output.
+	PORTB |= (1 << PORTB4);					// LED initially on.
 	DDRD &= ~((1 << DDD2) | (1 << DDD3));	// D2 and D3 input.
 	PORTD |= (1 << PORTD2) | (1 << PORTD3);	// Pull-up resistor D2 and D3.
 	
